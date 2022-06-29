@@ -6,10 +6,8 @@ const addButton = document.getElementById('add-button');
 
 addButton.onclick = addParagraph;
 
-
 function addParagraph (event) {
-    let para = document.createElement('p');
-    const wrapper = document.getElementById('list');
-    para.innerHTML = userInput.value;
-    document.body.appendChild(para);
+    let newDiv = document.createElement('div');
+    newDiv.innerHTML = userInput.value;
+    document.body.appendChild(newDiv);
 }
