@@ -39,3 +39,7 @@ input {
     border: 1px solid;
     border-color: var(--red);
 }
+
+.strike {
+    text-decoration: line-through;
+}
