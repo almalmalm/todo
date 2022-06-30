@@ -5,7 +5,9 @@ const userInput = document.getElementById('user-input');
 // When user click on 'Add TODO' button, the text adds to todo list
 const addBtn = document.getElementById('add-button');
 
-addBtn.addEventListener('click', function () {
+addBtn.addEventListener('click', addItemList);
+
+function addItemList () {
     const newDiv = document.createElement('div');
     const doneButton = document.createElement('button');
     const deleteButton = document.createElement('button');
@@ -19,14 +21,16 @@ addBtn.addEventListener('click', function () {
     divList.appendChild(newDiv);
     newDiv.appendChild(doneButton);
     newDiv.appendChild(deleteButton);
-});
+    console.log('Added list item');
+}
 
 const deleteBtn = document.getElementById('delete-button');
 
-deleteBtn.addEventListener('click', function () {
-    console.log('delete');
-});
+deleteBtn.addEventListener('click', deleteItemList);
 
+function deleteItemList () {
+    console.log('delete');
+}
 
 // function createListItem (event) {
 //     const newDiv = document.createElement('div');
