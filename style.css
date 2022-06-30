@@ -20,6 +20,17 @@ body {
 #list-item {
     display: flex;
     margin: 10px;
+    justify-content: space-between;
+    min-width: 386px;
+    align-items: center;
+}
+
+#text {
+    flex-grow: 10;
+}
+
+#done-button {
+    margin: 0 5px;
 }
 
 button {

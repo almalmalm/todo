@@ -11,7 +11,6 @@ function addItemList () {
     const newDiv = document.createElement('div');
     const doneButton = document.createElement('button');
     const deleteButton = document.createElement('button');
-    //newDiv.innerHTML = userInput.value;
     const text = userInput.value;
     const textDiv = document.createElement('div');
     textDiv.innerHTML = text;
@@ -30,7 +29,6 @@ function addItemList () {
     console.log('Added list item');
 
     const deleteBtn = document.getElementById('delete-button');
-
     deleteBtn.addEventListener('click', deleteItemList);
 
     function deleteItemList () {
@@ -39,7 +37,6 @@ function addItemList () {
     }
 
     const doneBtn = document.getElementById('done-button');
-
     doneBtn.addEventListener('click', doneItemList);
 
     function doneItemList () {
