@@ -1,10 +1,41 @@
+* {
+    --red : #E50914; 
+    --black : #221F1F;
+    --white : #F5F5F1;
+    box-sizing: border-box;
+    color: var(--black);
+    font-family: Helvetica, sans-serif;
+}
+
+
+
 body {
     display: flex;
     margin: 0 auto;
     flex-direction: column;
     align-items: center;  
+    background-color: var(--white);
 }
 
 #list-item {
-    display: inline-block;
+    display: flex;
+    margin: 10px;
+}
+
+button {
+    background-color: var(--white);
+    border: 1px solid;
+    border-color: var(--red);
+    border-radius: 10px;
+    height: 25px;
+    color: var(--red);
+}
+
+input {
+    background-color: var(--white);
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: var(--red);
 }

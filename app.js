@@ -5,6 +5,7 @@ const userInput = document.getElementById('user-input');
 const addButton = document.getElementById('add-button');
 
 addButton.onclick = createListItem;
+
 // возвращает null, понять почему
 const doneButton = document.getElementById('done-button');
 const deleteButton = document.getElementById('delete-button');
@@ -23,8 +24,8 @@ function createListItem (event) {
     deleteButton.setAttribute('id', 'delete-button')
     const divList = document.getElementById('list');
     divList.appendChild(newDiv);
-    divList.appendChild(doneButton);
-    divList.appendChild(deleteButton);
+    newDiv.appendChild(doneButton);
+    newDiv.appendChild(deleteButton);
 }
 
 function deleteListItem (event) {
