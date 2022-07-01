@@ -5,9 +5,9 @@
     box-sizing: border-box;
     color: var(--black);
     font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
 }
-
-
 
 body {
     display: flex;
@@ -15,6 +15,10 @@ body {
     flex-direction: column;
     align-items: center;  
     background-color: var(--white);
+}
+
+.title {
+    margin: 80px;
 }
 
 #list-item {
@@ -38,17 +42,18 @@ button {
     border: 1px solid;
     border-color: var(--red);
     border-radius: 10px;
-    height: 25px;
     color: var(--red);
+    padding: 5px;
 }
 
 input {
     background-color: var(--white);
     width: 300px;
-    height: 30px;
+    height: 27px;
     border-radius: 10px;
     border: 1px solid;
     border-color: var(--red);
+    padding: 5px;
 }
 
 .strike {
