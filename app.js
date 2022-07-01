@@ -7,6 +7,8 @@ const addBtn = document.getElementById('add-button');
 
 addBtn.addEventListener('click', addItemList);
 
+const list = document.getElementById('list');
+
 function addItemList () {
     const newDiv = document.createElement('div');
     const doneButton = document.createElement('button');
@@ -27,9 +29,11 @@ function addItemList () {
     newDiv.appendChild(doneButton);
     newDiv.appendChild(deleteButton);
     console.log('Added list item');
+    userInput.value = null;
 
     const deleteBtn = document.getElementById('delete-button');
     deleteBtn.addEventListener('click', deleteItemList);
+
 
     function deleteItemList () {
         console.log('delete');
@@ -44,4 +48,16 @@ function addItemList () {
         const item = document.querySelector('#text');
         item.classList.add('strike');
     }
+    
+
+    const deleteButtons = document.querySelectorAll('#delete-button');
+    const doneButtons = document.querySelectorAll('#done-buttons');
+
+    // list.addEventListener('click', btnClick);
+
+    // function btnClick (e) {
+    //     if(e.getElementById == '#text'){
+    //         e.target.classList.add('strike');
+    //     }
+    // }
 }
