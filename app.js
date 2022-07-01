@@ -7,9 +7,17 @@ const addBtn = document.getElementById('add-button');
 
 addBtn.addEventListener('click', addItemList);
 
+userInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("add-button").click();
+    }
+  });
+
 const list = document.getElementById('list');
 
 function addItemList () {
+    
     const newDiv = document.createElement('div');
     const doneButton = document.createElement('button');
     const deleteButton = document.createElement('button');
@@ -49,7 +57,6 @@ function addItemList () {
         item.classList.add('strike');
     }
     
-
     const deleteButtons = document.querySelectorAll('#delete-button');
     const doneButtons = document.querySelectorAll('#done-buttons');
 
