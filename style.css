@@ -21,7 +21,7 @@ body {
     margin: 80px;
 }
 
-#list-item {
+.item {
     display: flex;
     margin: 10px;
     justify-content: space-between;
@@ -29,11 +29,11 @@ body {
     align-items: center;
 }
 
-#text {
+.text {
     flex-grow: 10;
 }
 
-#done-button {
+.done {
     margin: 0 5px;
 }
 

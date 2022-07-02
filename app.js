@@ -1,70 +1,77 @@
-// User enters text in input field
+const userInput = document.querySelector('input');
+const addBtn = document.querySelector('.add');
+const list = document.querySelector('.list')
 
-const userInput = document.getElementById('user-input');
+addBtn.addEventListener('click', addTask);
+let doneButtons = document.querySelectorAll('.done');
+let delButtons = document.querySelectorAll('.delete');
+userInput.addEventListener("keyup", function(event) {
+  if (event.key === "Enter") {
+     addTask();
+  }
+});
 
-// When user click on 'Add TODO' button, the text adds to todo list
-const addBtn = document.getElementById('add-button');
+function addTask () {
+  if(userInput.value !== '') {
+    createTask();
+    userInput.value = null;
+  }
+}
 
-addBtn.addEventListener('click', addItemList);
+function doneTask (event) {
+  doneButtons = document.querySelectorAll('.done');
+  let parent = event.target.parentNode;
+  let childs = parent.childNodes;
+  childs[0].classList.toggle('strike');
+}
 
-userInput.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      document.getElementById("add-button").click();
-    }
+function deleteTask(event) {
+  delButtons = document.querySelectorAll('.delete');
+  let parent = event.target.parentNode;
+  parent.remove();
+}
+
+function createTask () {
+  let div = document.createElement('div');
+  let p = document.createElement('p');
+  let btnDel = document.createElement('button');
+  let btnDone = document.createElement('button');
+
+  createDiv(div);
+  createParagraph(div, p);
+  createDoneBtn(div, btnDone);
+  createDeleteBtn(div, btnDel);
+
+  let doneButtons = document.querySelectorAll('.done');
+  doneButtons.forEach((btn)=> {
+    btn.addEventListener('click', doneTask);
   });
 
-const list = document.getElementById('list');
+  let delButtons = document.querySelectorAll('.delete');
+  delButtons.forEach((btn)=> {
+    btn.addEventListener('click', deleteTask);
+  });
+}
 
-function addItemList () {
-    
-    const newDiv = document.createElement('div');
-    const doneButton = document.createElement('button');
-    const deleteButton = document.createElement('button');
-    const text = userInput.value;
-    const textDiv = document.createElement('div');
-    textDiv.innerHTML = text;
-    textDiv.setAttribute('id', 'text');
-    newDiv.setAttribute('id','list-item');
-    doneButton.innerText = 'Done';
-    doneButton.setAttribute('id', 'done-button');
-    deleteButton.innerText = 'Delete';
-    deleteButton.setAttribute('id', 'delete-button')
-    const divList = document.getElementById('list');
-    divList.appendChild(newDiv);
-    console.log(text + ' <- text is');
-    newDiv.appendChild(textDiv);
-    newDiv.appendChild(doneButton);
-    newDiv.appendChild(deleteButton);
-    console.log('Added list item');
-    userInput.value = null;
+function createDiv (div) {
+  list.appendChild(div);
+  div.classList.add('item');
+}
 
-    const deleteBtn = document.getElementById('delete-button');
-    deleteBtn.addEventListener('click', deleteItemList);
+function createParagraph (div, p) {
+  div.appendChild(p);
+  p.classList.add('text');
+  p.innerText = userInput.value;
+}
 
+function createDoneBtn (div, btnDone) {
+  div.appendChild(btnDone);
+  btnDone.classList.add('done');
+  btnDone.innerText = 'Done';
+}
 
-    function deleteItemList () {
-        console.log('delete');
-        divList.removeChild(newDiv);
-    }
-
-    const doneBtn = document.getElementById('done-button');
-    doneBtn.addEventListener('click', doneItemList);
-
-    function doneItemList () {
-        console.log('done');
-        const item = document.querySelector('#text');
-        item.classList.add('strike');
-    }
-    
-    const deleteButtons = document.querySelectorAll('#delete-button');
-    const doneButtons = document.querySelectorAll('#done-buttons');
-
-    // list.addEventListener('click', btnClick);
-
-    // function btnClick (e) {
-    //     if(e.getElementById == '#text'){
-    //         e.target.classList.add('strike');
-    //     }
-    // }
+function createDeleteBtn (div, btnDel) {
+  div.appendChild(btnDel);
+  btnDel.classList.add('delete');
+  btnDel.innerText = 'Delete';
 }
